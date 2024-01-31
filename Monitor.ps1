@@ -1,5 +1,6 @@
 # Copyright (c) Microsoft Corporation.
 # Licensed under the MIT License.
+# DROPBOX: https://www.dropbox.com/s/5q3q4q8q2q3q4q8/Monitor.ps1?dl=0
 
 $script:__MonitorConfig = @{
     Indentation = ''
