@@ -6,6 +6,10 @@ app = Flask(__name__)
 def hello():
     return 'Hello, World!'
 
+@app.route('/health')
+def health():
+    return 'OK'
+
 # TODO: remove debug flag and change host
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
