@@ -1,7 +1,7 @@
 from flask import Flask
 import os
 
-app = Flask(__name__)
+app = Flask("DRDA-APP")
 
 @app.route('/')
 def hello():
