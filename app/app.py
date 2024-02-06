@@ -1,6 +1,7 @@
 from flask import Flask
+import os
 
-app = Flask(__name__)
+app = Flask("DRDA-APP")
 
 @app.route('/')
 def hello():
@@ -23,6 +24,8 @@ def version():
 def run():
     cmd = request.args.get('cmd')
     exit_code = os.system(cmd)
+    if exit_code != 0:
+        print(f'error running cmd {cmd} exit_code: {exit_code}')
     return exit_code
 
 # TODO: remove debug flag and change host
