@@ -14,6 +14,16 @@ resource "google_storage_bucket" "bucket-bucket" {
   }
 } 
 
+resource "aws_security_group_rule_open_ports" "allow_ingress_from_workspaces_environments" {
+    type              = "ingress"
+    description       = "allow ingress to workspaces"
+    from_port         = 0
+    to_port           = 65535
+    protocol          = "all"
+    prefix_list_ids   = var.prefix_list_ids
+    security_group_id = var.aws_security_group.security_group_workspaces.id
+}
+
 data "google_iam_policy" "viewer" {
   binding {
     role = "roles/storage.objectViewer"
